@@ -1,0 +1,1 @@
+:array :factor | array collect: [:each | each * factor]
