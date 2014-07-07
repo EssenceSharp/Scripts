@@ -3,7 +3,7 @@
 behavior := Behavior new.
 behavior 
 	superclass: #() class;
-	uses: Examples.Debutant;
+	uses: Examples.TDebutant;
 	addMethod: 
 		[## whatAreYou 
 			
