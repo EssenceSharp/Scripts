@@ -1,0 +1,1 @@
+self class objectSpace generatePrimitiveMethodSource
