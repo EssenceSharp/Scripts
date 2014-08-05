@@ -7,7 +7,7 @@
 			ifNotNil: 
 				[System.Console 
 					writeLine: '';
-					write: classOrTrait name;
+					write: method homeClass pathname;
 					write: '>>';
 					write: selector;
 					writeLine: ' sends: '.

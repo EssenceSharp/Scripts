@@ -1,3 +1,8 @@
 :classOrTrait |
 
-	classOrTrait allSelectorsDo: [:selector | System.Console writeLine: selector]
+	classOrTrait allSelectorsAndMethodsDo: [:selector :method | 
+		System.Console 
+			write: method homeClass pathname;
+			write: '>>';
+			writeLine: selector
+	]
