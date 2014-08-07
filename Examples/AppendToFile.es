@@ -9,7 +9,7 @@
 	[Transcript show: 'Writing out all root classes to ', pathname; cr.
 	Class subclassesDo: [:rootMetaclass | 
 		| rootClass |
-		rootClass isMetaclass 
+		rootMetaclass isMetaclass 
 			ifTrue:
 				[rootClass := rootMetaclass soleInstance.
 				stream 
