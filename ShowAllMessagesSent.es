@@ -5,14 +5,15 @@
 		messagesSent := method messagesSent.
 		messagesSent
 			ifNotNil: 
-				[System.Console 
-					writeLine: '';
-					write: method homeClass pathname;
-					write: '>>';
-					write: selector;
-					writeLine: ' sends: '.
+				[Transcript
+					cr;
+					nextPutAll: method homeClass qualifiedName;
+					nextPutAll: '>>';
+					nextPutAll: selector;
+					nextPutAll: ' sends: ';
+					cr.
 				messagesSent do: [:message |
-					System.Console write: CharacterConstants.TAB; writeLine: message
+					Transcript nextPut: CharacterConstants.TAB; nextPutAll: message
 				]
 		]
 	]

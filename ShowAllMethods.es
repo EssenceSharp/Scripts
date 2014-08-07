@@ -1,8 +1,9 @@
 :classOrTrait |
 
 	classOrTrait allSelectorsAndMethodsDo: [:selector :method | 
-		System.Console 
-			write: method homeClass pathname;
-			write: '>>';
-			writeLine: selector
+		Transcript 
+			nextPutAll: method homeClass qualifiedName;
+			nextPutAll: '>>';
+			nextPutAll: selector;
+			cr
 	]

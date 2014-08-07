@@ -1,19 +1,38 @@
-:selector :classOrTrait |
+:selector |
 
-	classOrTrait allSelectorsAndMethodsDo: [:mSelector :method | 
-		| messagesSent |
-		messagesSent := method messagesSent.
-		messagesSent
-			ifNotNil: 
-				[(messagesSent includes: selector)
-					ifTrue: 
-						[System.Console 
-							writeLine: '';
-							write: method homeClass pathname;
-							write: '>>';
-							write: mSelector;
-							write: ' sends: ';
-							writeLine: selector
+	| senders |
+	
+	senders := Set new.
+	self class objectSpace rootClassesDo: [:rootClass |
+		rootClass allSubclassesDo: [:class | 
+			class selectorsAndMethodsDo: [:mSelector :method | 
+				| messagesSent |
+				messagesSent := method messagesSent.
+				messagesSent
+					ifNotNil: 
+						[(messagesSent includes: selector)
+							ifTrue: [senders add: method]
 						]
-				]
+			].
+			class class selectorsAndMethodsDo: [:mSelector :method | 
+				| messagesSent |
+				messagesSent := method messagesSent.
+				messagesSent
+					ifNotNil: 
+						[(messagesSent includes: selector)
+							ifTrue: [senders add: method]
+						]
+			]
+		]
+	].
+	
+	senders do: [:method | 
+		Transcript 
+			cr;
+			nextPutAll: method homeClass qualifiedName;
+			nextPutAll: '>>';
+			nextPutAll: method selector;
+			nextPutAll: ' sends: ';
+			nextPutAll: selector
 	]
+								

@@ -1,8 +1,9 @@
 :classOrTrait |
 
 	classOrTrait traitUsage usedTraitMethodConflictsDo: [:selector :method | 
-		System.Console 
-			write: method homeClass pathname;
-			write: '>>';
-			writeLine: selector
+		Transcript 
+			nextPutAll: method homeClass pathname;
+			nextPutAll: '>>';
+			nextPutAll: selector;
+			cr
 	]
