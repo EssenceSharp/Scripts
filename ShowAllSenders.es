@@ -2,7 +2,7 @@
 
 	| senders |
 	
-	senders := Set new.
+	senders := Set newForIdentity.
 	self class objectSpace rootClassesDo: [:rootClass |
 		rootClass allSubclassesDo: [:class | 
 			class selectorsAndMethodsDo: [:mSelector :method | 
