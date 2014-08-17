@@ -1,3 +1,3 @@
 :classOrTrait |
 
-	classOrTrait withUnimplementedMessagesSentToSelfDo: [:m | System.Console writeLine: m]
+	classOrTrait withUnimplementedMessagesSentToSelfDo: [:m | Transcript show: m; cr]

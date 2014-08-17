@@ -9,6 +9,8 @@ behavior
 			
 			self class superclass name showCr
 		].
+		
+behavior activate.
 	
 array := #(5 8 13).
 array changeClassToThatOf: behavior new.
